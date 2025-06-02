@@ -1,16 +1,5 @@
-Một file `README.md` tốt sẽ giúp người dùng, nhà phát triển khác (và cả chính bạn trong tương lai) **hiểu rõ mục đích, cách cài đặt, sử dụng và phát triển dự án**.
+ **A system to manage pet care services like grooming, medical treatment, and lodging**,
 
-Với project của bạn là:
-
-> **A system to manage pet care services like grooming, medical treatment, and lodging**,
-
-một file `README.md` nên có các phần sau:
-
----
-
-## 📘 Mẫu `README.md` Gợi ý
-
-````markdown
 # 🐾 Pet Care Management System
 
 A web-based system to manage pet care services such as grooming, medical treatment, and lodging.
