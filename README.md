@@ -34,11 +34,10 @@ cd backend
 
 # Biên dịch và chạy ứng dụng
 ./mvnw spring-boot:run
-````
 
 Cấu hình PostgreSQL nằm trong `application.properties` hoặc `application.yml`:
 
-
+```
 spring.datasource.url=jdbc:postgresql://localhost:5432/petcare_db
 spring.datasource.username=postgres
 spring.datasource.password=your_password
@@ -49,20 +48,21 @@ spring.jpa.hibernate.ddl-auto=update
 
 
 # Di chuyển vào thư mục frontend
+```
 cd frontend
-
+```
 # Cài đặt thư viện
+```
 npm install
-
+```
 # Chạy ứng dụng
+```
 npm start
 ```
 
----
-
 ## 📁 Cấu trúc chính
 
-
+```
 ├── backend/
 │   ├── src/main/java/com/petcare/
 │   │   ├── controller/
