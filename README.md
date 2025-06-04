@@ -114,5 +114,9 @@ npm start
 > 💼 LinkedIn: https://www.facebook.com/NguyenVanHung.1707/
 
 > 🚀 Dự án được phát triển bởi nhóm 11 – Trường Đại học Bách khoa Hà Nội
-
+Nguyễn Văn Hưng	  20225634
+Tạ Duy Lâm	      20225729
+Trần Doãn Huy  	  20225859
+Võ Anh Khôi	      20225870
+Nguyễn Quốc Khánh	20225866
 
