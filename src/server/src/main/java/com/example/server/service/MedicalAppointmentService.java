@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -93,4 +94,44 @@ public class MedicalAppointmentService {
     }
 
     // Additional methods for managing medical appointments could go here
+    public List<Appointment> getAllMedicalAppointments() {
+        return appointmentRepository.findByType(Appointment.AppointmentType.KHÁM_BỆNH);
+    }
+
+    public Appointment getMedicalAppointmentById(Integer id) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Không tìm thấy lịch hẹn"));
+
+        // Verify it's a medical appointment
+        if (appointment.getType() != Appointment.AppointmentType.KHÁM_BỆNH) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Không phải lịch hẹn khám bệnh");
+        }
+
+        return appointment;
+    }
+
+    public Appointment updateMedicalAppointment(Integer id, LocalDateTime startTime,
+                                                String customerNotes, Appointment.AppointmentStatus status) {
+        Appointment appointment = getMedicalAppointmentById(id);
+
+        // Update only if supplied values are non-null
+        if (startTime != null) {
+            appointment.setStartTime(startTime);
+        }
+
+        if (customerNotes != null) {
+            appointment.setCustomerNotes(customerNotes);
+        }
+
+        if (status != null) {
+            appointment.setStatus(status);
+        }
+
+        return appointmentRepository.save(appointment);
+    }
+
+    public void deleteMedicalAppointment(Integer id) {
+        Appointment appointment = getMedicalAppointmentById(id);
+        appointmentRepository.delete(appointment);
+    }
 }
