@@ -1,98 +1,118 @@
- **A system to manage pet care services like grooming, medical treatment, and lodging**,
+ **Hệ Thống Quản Lý Trung Tâm Chăm Sóc Thú Cưng**
 
-# 🐾 Pet Care Management System
+---
 
-A web-based system to manage pet care services such as grooming, medical treatment, and lodging.
+````markdown
+# 🐾 HỆ THỐNG QUẢN LÝ TRUNG TÂM CHĂM SÓC THÚ CƯNG
 
-## 📌 Features
+Một hệ thống quản lý toàn diện giúp kết nối giữa trung tâm chăm sóc thú cưng, bác sĩ thú y, nhân viên, chủ cửa hàng và chủ nuôi. Hệ thống hỗ trợ các chức năng đặt lịch khám, làm đẹp, lưu trú, quản lý sức khỏe thú cưng, bán hàng và thống kê hoạt động.
 
-- 📋 Manage pet profiles and owners
-- 💉 Track medical records and treatment history
-- ✂️ Schedule and manage grooming appointments
-- 🏨 Handle pet lodging/stay records
-- 🔔 Notification system for upcoming appointments
-- 📊 Generate reports/statistics for business analysis
+---
 
-## 🛠️ Technologies Used
+## 🔧 Công nghệ sử dụng
 
-- Frontend: HTML/CSS/JavaScript or React (tùy theo bạn dùng gì)
-- Backend: Java + Spring Boot (hoặc Node.js, Python Flask, v.v.)
-- Database: MySQL / PostgreSQL
-- Others: JWT for Authentication, RESTful API, Docker (nếu có)
+### 👨‍💻 Frontend
+- **ReactJS**: Framework xây dựng giao diện người dùng hiện đại và tương tác.
+- **MUI (Material UI)**: Bộ thư viện UI component hỗ trợ thiết kế giao diện nhanh, đẹp, và nhất quán.
+- **ECharts**, **ApexCharts**: Thư viện biểu đồ cho phần thống kê trực quan và tương tác.
 
-## 🚀 Getting Started
+### 🧠 Backend
+- **Spring Boot**: Framework Java mạnh mẽ cho việc xây dựng RESTful API và xử lý nghiệp vụ backend.
 
-### 1. Clone the Repository
+### 🗃️ Cơ sở dữ liệu
+- **PostgreSQL**: Hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ, ổn định và mã nguồn mở.
+
+---
+
+## 📦 Cài đặt dự án
+
+### 1. Backend – Spring Boot
+
 ```bash
-git clone https://github.com/yourusername/pet-care-system.git
-cd pet-care-system
+# Di chuyển vào thư mục backend
+cd backend
+
+# Biên dịch và chạy ứng dụng
+./mvnw spring-boot:run
 ````
 
-### 2. Backend Setup
+Cấu hình PostgreSQL nằm trong `application.properties` hoặc `application.yml`:
 
-```bash
-cd backend
-# Cài đặt các thư viện, ví dụ với Maven
-./mvnw install
-./mvnw spring-boot:run
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/petcare_db
+spring.datasource.username=postgres
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
 ```
 
-### 3. Frontend Setup
+### 2. Frontend – ReactJS
 
 ```bash
+# Di chuyển vào thư mục frontend
 cd frontend
+
+# Cài đặt thư viện
 npm install
-npm run dev
+
+# Chạy ứng dụng
+npm start
 ```
 
-### 4. Database Setup
+---
 
-* Import the `schema.sql` file from `db/` folder into your MySQL server.
-* Set environment variables in `.env` or `application.properties`.
-
-## 📷 Screenshots
-
-| Pet Dashboard                           | Appointment Page                              |
-| --------------------------------------- | --------------------------------------------- |
-| ![dashboard](screenshots/dashboard.png) | ![appointments](screenshots/appointments.png) |
-
-## 🧪 Tests
+## 📁 Cấu trúc chính
 
 ```bash
-# Backend tests
-cd backend
-./mvnw test
-```
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Contributors
-
-* Nguyễn Văn Hưng - Developer / Project Leader
-* ...
-
-## 🙌 Acknowledgements
-
-* Thanks to our professor/team for guidance.
-* Icons by [FontAwesome](https://fontawesome.com/)
-
+├── backend/
+│   ├── src/main/java/com/petcare/
+│   │   ├── controller/
+│   │   ├── service/
+│   │   ├── repository/
+│   │   ├── model/
+│   │   └── PetCareApplication.java
+│   └── resources/
+│       └── application.properties
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.js
+│   │   └── index.js
+│
+└── README.md
 ```
 
 ---
 
-## 📌 Ghi chú:
-- Bạn có thể lược bỏ bớt nếu project nhỏ (hoặc thêm phần như API endpoints nếu là backend RESTful).
-- Nếu là đồ án nhóm, bạn nên ghi rõ vai trò của từng thành viên.
-- Nếu dùng CSDL mẫu, nhớ hướng dẫn import nó.
+## 🚀 Tính năng chính
+
+* Quản lý hồ sơ thú cưng, lịch sử khám bệnh và làm đẹp
+* Đặt lịch hẹn khám, làm đẹp, lưu trú
+* Gửi thông báo nhắc lịch, kết quả khám
+* Quản lý dịch vụ, phòng lưu trú và nhân viên
+* Quản lý cửa hàng sản phẩm cho thú cưng
+* Thống kê báo cáo bằng biểu đồ (ApexCharts, ECharts)
+* Phân quyền người dùng (Chủ nuôi, Bác sĩ, Nhân viên, Quản trị viên)
 
 ---
 
-Bạn có muốn mình tạo hẳn một file `README.md` hoàn chỉnh dựa trên stack công nghệ mà bạn đang dùng cho dự án thú cưng không? Nếu có, chỉ cần nói cho mình:
-- Frontend: Dùng gì?
-- Backend: Dùng gì?
-- Database: Loại gì?
-- Có dùng Docker hay không?  
-Mình sẽ tạo giúp file hoàn chỉnh sẵn luôn!
-```
+## 🧪 Tài khoản mẫu (Demo)
+
+| Vai trò       | Tài khoản                                 | Mật khẩu |
+| ------------- | ----------------------------------------- | -------- |
+| Chủ nuôi      | [user@demo.com](mailto:user@demo.com)     | 123456   |
+| Bác sĩ thú y  | [doctor@demo.com](mailto:doctor@demo.com) | 123456   |
+| Nhân viên     | [staff@demo.com](mailto:staff@demo.com)   | 123456   |
+| Quản trị viên | [admin@demo.com](mailto:admin@demo.com)   | admin123 |
+
+---
+
+## 📬 Liên hệ
+
+> 📧 Email: hungnguyen.170704@gmail.com
+> 💼 LinkedIn: https://www.facebook.com/NguyenVanHung.1707/
+> 🚀 Dự án được phát triển bởi nhóm 11 – Trường Đại học Bách khoa Hà Nội
+
+
