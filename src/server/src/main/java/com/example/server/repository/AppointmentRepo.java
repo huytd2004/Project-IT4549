@@ -22,4 +22,13 @@ public interface AppointmentRepo extends JpaRepository<Appointment, Integer> {
             "AND a.status != 'ĐÃ_HỦY' " +
             "AND ((a.startTime <= :endTime AND a.endTime >= :startTime))")
     long countByRoomIdAndTimeOverlap(int roomId, LocalDateTime startTime, LocalDateTime endTime);
+
+    long countByRoomIdAndTimeOverlapExcludingId(Integer roomId, LocalDateTime start, LocalDateTime end, Integer excludeId);
+    List<Appointment> findByType(Appointment.AppointmentType type);
+    long countByRequestTimeBetween(LocalDateTime start, LocalDateTime end);
+    List<Appointment> findByStatus(Appointment.AppointmentStatus status);
+    List<Appointment> findByStatusAndStartTimeBetween(Appointment.AppointmentStatus status,
+                                                      LocalDateTime start, LocalDateTime end);
+    long countByStatus(Appointment.AppointmentStatus status);
+    long countByStartTimeBetween(LocalDateTime start, LocalDateTime end);
 }

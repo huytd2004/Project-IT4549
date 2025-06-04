@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -64,5 +65,45 @@ public class GroomingAppointmentService {
         appointment.setPrice(service.getBasePrice());
 
         return appointmentRepository.save(appointment);
+    }
+    public List<Appointment> getAllGroomingAppointments() {
+        return appointmentRepository.findByType(Appointment.AppointmentType.LÀM_ĐẸP);
+    }
+
+    public Appointment getGroomingAppointmentById(Integer id) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Không tìm thấy lịch hẹn"));
+
+        // Verify it's a grooming appointment
+        if (appointment.getType() != Appointment.AppointmentType.LÀM_ĐẸP) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Không phải lịch hẹn làm đẹp");
+        }
+
+        return appointment;
+    }
+
+    public Appointment updateGroomingAppointment(Integer id, LocalDateTime startTime,
+                                                 String customerNotes, Appointment.AppointmentStatus status) {
+        Appointment appointment = getGroomingAppointmentById(id);
+
+        // Update only if supplied values are non-null
+        if (startTime != null) {
+            appointment.setStartTime(startTime);
+        }
+
+        if (customerNotes != null) {
+            appointment.setCustomerNotes(customerNotes);
+        }
+
+        if (status != null) {
+            appointment.setStatus(status);
+        }
+
+        return appointmentRepository.save(appointment);
+    }
+
+    public void deleteGroomingAppointment(Integer id) {
+        Appointment appointment = getGroomingAppointmentById(id);
+        appointmentRepository.delete(appointment);
     }
 }
