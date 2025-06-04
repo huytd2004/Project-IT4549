@@ -2,7 +2,7 @@
 
 ---
 
-````markdown
+
 # 🐾 HỆ THỐNG QUẢN LÝ TRUNG TÂM CHĂM SÓC THÚ CƯNG
 
 Một hệ thống quản lý toàn diện giúp kết nối giữa trung tâm chăm sóc thú cưng, bác sĩ thú y, nhân viên, chủ cửa hàng và chủ nuôi. Hệ thống hỗ trợ các chức năng đặt lịch khám, làm đẹp, lưu trú, quản lý sức khỏe thú cưng, bán hàng và thống kê hoạt động.
@@ -28,7 +28,7 @@ Một hệ thống quản lý toàn diện giúp kết nối giữa trung tâm c
 
 ### 1. Backend – Spring Boot
 
-```bash
+
 # Di chuyển vào thư mục backend
 cd backend
 
@@ -38,7 +38,7 @@ cd backend
 
 Cấu hình PostgreSQL nằm trong `application.properties` hoặc `application.yml`:
 
-```properties
+
 spring.datasource.url=jdbc:postgresql://localhost:5432/petcare_db
 spring.datasource.username=postgres
 spring.datasource.password=your_password
@@ -47,7 +47,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ### 2. Frontend – ReactJS
 
-```bash
+
 # Di chuyển vào thư mục frontend
 cd frontend
 
@@ -62,7 +62,7 @@ npm start
 
 ## 📁 Cấu trúc chính
 
-```bash
+
 ├── backend/
 │   ├── src/main/java/com/petcare/
 │   │   ├── controller/
