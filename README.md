@@ -27,8 +27,9 @@ Một hệ thống quản lý toàn diện giúp kết nối giữa trung tâm c
 
 
 # Di chuyển vào thư mục backend
+```
 cd backend
-
+```
 # Biên dịch và chạy ứng dụng
 ./mvnw spring-boot:run
 
@@ -109,7 +110,9 @@ npm start
 ## 📬 Liên hệ
 
 > 📧 Email: hungnguyen.170704@gmail.com
+
 > 💼 LinkedIn: https://www.facebook.com/NguyenVanHung.1707/
+
 > 🚀 Dự án được phát triển bởi nhóm 11 – Trường Đại học Bách khoa Hà Nội
 
 
